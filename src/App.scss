@@ -1,0 +1,363 @@
+html {
+  font-size: 62.5% !important;
+}
+body {
+  font-size: 62.5% !important;
+}
+$primary: #644862;
+
+.center {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+//Navigation
+.nav {
+  display: grid;
+  width: 100%;
+  background: $primary;
+  grid-template-columns: 1fr 2fr;
+  &__left {
+    display: flex;
+    justify-content: center;
+  }
+  &__right {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__item {
+    font-size: 1.2rem;
+    margin: 1rem 0;
+    position: relative;
+    padding: 0.2rem 0;
+    color: white;
+    transition: ease-in-out all 0.3s;
+    &:hover {
+      text-shadow: 0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.5);
+      color: white;
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+
+  &__item:after {
+    display: block;
+    content: "";
+    bottom: 0;
+    transition: ease-in-out all 0.3s;
+    background: white;
+    left: 0;
+    height: 0.1rem;
+    width: 0;
+    position: absolute;
+  }
+
+  &__active {
+    text-shadow: 0.4rem 0.4rem 0.5rem rgba(0, 0, 0, 0.5);
+    &:after {
+      width: 100%;
+    }
+  }
+}
+
+//Register
+
+.register {
+  &__segment {
+    width: 70%;
+  }
+
+  label {
+    font-size: 1.2rem !important;
+    margin: 0.4rem 0.2rem !important;
+  }
+
+  button {
+    background-color: #694167 !important;
+    transition: ease-in-out all 0.1s;
+    &:hover {
+      background-color: #774a75 !important;
+    }
+  }
+}
+
+@media (max-width: 820px) {
+  .register__segment {
+    width: 95%;
+  }
+}
+
+//Search
+
+.searchForm {
+  margin: auto;
+  width: 80% !important;
+  button {
+    background-color: #694167 !important;
+    transition: ease-in-out all 0.1s;
+    &:hover {
+      background-color: #774a75 !important;
+    }
+  }
+}
+
+//Search PC first
+.search {
+  &__results {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__cont2 {
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+    border-radius: 1rem;
+    background: rgba(0, 0, 0, 0.03);
+    box-sizing: border-box;
+    transition: ease-in-out all 0.2s;
+    &:hover {
+      box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  &__cont {
+    margin: 1.3rem auto;
+    width: 25vw;
+    height: auto;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+
+    img {
+      width: 20vw;
+    }
+  }
+  &__title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+
+  &__btn {
+    display: block !important;
+    margin: 0.3rem auto !important;
+  }
+}
+
+@media (max-width: 850px) {
+  .search {
+    &__btn {
+      font-size: 1.6rem !important;
+      margin: 0.9rem auto !important;
+    }
+
+    &__cont {
+      width: 70vw;
+      img {
+        width: 65vw;
+      }
+    }
+  }
+}
+
+//Movie Details (Mobile first)
+
+.movie {
+  margin-bottom: 3rem;
+
+  button {
+    background-color: #694167 !important;
+    margin: 2rem auto !important;
+    transition: ease-in-out all 0.1s;
+    &:hover {
+      background-color: #774a75 !important;
+    }
+  }
+
+  &__img__placeholder {
+    width: 100%;
+  }
+
+  &__cont {
+    margin: auto;
+    width: 85%;
+  }
+
+  &__img {
+    margin: 3rem auto 1rem auto !important;
+    height: auto;
+    width: 100%;
+  }
+
+  &__margin {
+    margin: 2rem 0 3rem 0 !important;
+  }
+
+  &__placeholder__text {
+    margin-left: 0;
+  }
+}
+
+//PC
+@media (min-width: 850px) {
+  .movie {
+    &__cont {
+      width: 100%;
+    }
+
+    button {
+      margin: auto !important;
+    }
+
+    h2 {
+      font-size: 3rem;
+    }
+
+    &__basicInfo {
+      margin-top: 2rem;
+      width: 50%;
+      position: relative;
+      &__centered {
+        display: block;
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translate(0%, -50%);
+      }
+    }
+
+    &__margin {
+      margin: 0 0 3rem 0 !important;
+    }
+
+    &__placeholder__text {
+      margin-left: 5rem;
+    }
+
+    &__image {
+      text-align: center;
+      width: 50%;
+    }
+
+    &__img {
+      margin: 2rem !important;
+      max-width: 22vw !important;
+    }
+
+    &__info {
+      margin: 1rem 4rem;
+      padding: 1.5rem;
+    }
+
+    display: flex;
+  }
+}
+
+//Favourites Page mobile first
+
+.fav {
+  &__header {
+    margin-top: 2rem !important;
+    text-align: center;
+    font-size: 2.4rem;
+  }
+
+  &__cont {
+    margin-top: 2rem;
+  }
+
+  &__box {
+    width: 90%;
+    margin: auto;
+
+    &__img {
+      margin: 2rem auto;
+      display: block;
+    }
+
+    &__header {
+      font-size: 2rem;
+    }
+  }
+}
+
+//Home Page PC First
+.home {
+  position: relative;
+  background: url("./images/background.jpg");
+  color: #e7e7e7;
+  height: 100vh;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  h1:hover,
+  h3:hover,
+  h4:hover {
+    text-shadow: 0.2rem 0.2rem 1rem rgba(0, 0, 0, 0.5);
+  }
+
+  h1,
+  h3,
+  h4 {
+    margin-left: 5rem;
+    transition: ease-in-out all 0.3s;
+  }
+
+  &__cont {
+    height: 100vh;
+    width: 100vw;
+    background: rgba(100, 72, 98, 0.4);
+  }
+
+  &__subheader {
+    font-size: 3.5rem;
+  }
+
+  &__p {
+    margin-top: 4rem;
+    font-size: 2.5rem;
+  }
+
+  &__btn {
+    margin-left: 5rem !important;
+    font-size: 1.3rem !important;
+  }
+
+  &__header {
+    font-size: 6rem;
+    padding-top: 5rem !important;
+  }
+}
+
+@media (max-width: 800px) {
+  h1,
+  h3,
+  h4,
+  button {
+    margin-left: 2rem;
+  }
+
+  .home {
+    &__cont {
+    }
+
+    &__subheader {
+      font-size: 3rem;
+    }
+
+    &__header {
+      font-size: 4rem;
+    }
+
+    &__p {
+      font-size: 3rem;
+    }
+    &__btn {
+      font-size: 2rem !important;
+    }
+  }
+}
