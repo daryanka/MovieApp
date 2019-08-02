@@ -70,15 +70,22 @@ p {
   width: 100%;
 }
 
+.register h1 {
+  font-size: 3.5rem !important;
+}
 .register__segment {
   width: 70%;
 }
+.register__segment input {
+  font-size: 1.5rem !important;
+}
 .register label {
-  font-size: 1.2rem !important;
-  margin: 0.4rem 0.2rem !important;
+  font-size: 1.5rem !important;
+  margin: 1rem 0.2rem !important;
 }
 .register button {
   background-color: #694167 !important;
+  font-size: 1.5rem !important;
   transition: ease-in-out all 0.1s;
 }
 .register button:hover {

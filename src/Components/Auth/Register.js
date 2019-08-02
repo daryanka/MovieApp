@@ -116,7 +116,12 @@ const Register = props => {
           />
           {emailErr && (
             <div className="center">
-              <Label style={{ margin: "auto" }} basic color="red" pointing>
+              <Label
+                style={{ margin: "auto", fontSize: "1.5rem" }}
+                basic
+                color="red"
+                pointing
+              >
                 {emailErr}
               </Label>
             </div>
@@ -131,7 +136,12 @@ const Register = props => {
           />
           {passwordErr && (
             <div className="center">
-              <Label style={{ margin: "auto" }} basic color="red" pointing>
+              <Label
+                style={{ margin: "auto", fontSize: "1.5rem" }}
+                basic
+                color="red"
+                pointing
+              >
                 {passwordErr}
               </Label>
             </div>
@@ -146,12 +156,17 @@ const Register = props => {
           />
           {confirmPasswordErr && (
             <div className="center">
-              <Label style={{ margin: "auto" }} basic color="red" pointing>
+              <Label
+                style={{ margin: "auto", fontSize: "1.5rem" }}
+                basic
+                color="red"
+                pointing
+              >
                 {confirmPasswordErr}
               </Label>
             </div>
           )}
-          <Message>
+          <Message style={{ fontSize: "1.5rem" }}>
             Already have an account? Login <Link to="/register">Here</Link>
           </Message>
           <Form.Button
@@ -165,7 +180,11 @@ const Register = props => {
             Sign Up
           </Form.Button>
         </Form>
-        {firebaseErr && <Message color="red">{firebaseErr}</Message>}
+        {firebaseErr && (
+          <Message style={{ fontSize: "1.5rem" }} color="red">
+            {firebaseErr}
+          </Message>
+        )}
       </Segment>
     </div>
   );

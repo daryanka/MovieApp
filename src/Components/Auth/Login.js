@@ -100,7 +100,12 @@ const Login = props => {
           />
           {emailErr && (
             <div className="center">
-              <Label style={{ margin: "auto" }} basic color="red" pointing>
+              <Label
+                style={{ margin: "auto", fontSize: "1.2rem" }}
+                basic
+                color="red"
+                pointing
+              >
                 {emailErr}
               </Label>
             </div>
@@ -115,12 +120,17 @@ const Login = props => {
           />
           {passwordErr && (
             <div className="center">
-              <Label style={{ margin: "auto" }} basic color="red" pointing>
+              <Label
+                style={{ margin: "auto", fontSize: "1.2rem" }}
+                basic
+                color="red"
+                pointing
+              >
                 {passwordErr}
               </Label>
             </div>
           )}
-          <Message>
+          <Message style={{ fontSize: "1.5rem" }}>
             Dont have an account? Register <Link to="/register">Here</Link>
           </Message>
           <Form.Button

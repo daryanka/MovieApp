@@ -77,17 +77,25 @@ $primary: #644862;
 //Register
 
 .register {
+  h1 {
+    font-size: 3.5rem !important;
+  }
   &__segment {
     width: 70%;
+
+    input {
+      font-size: 1.5rem !important;
+    }
   }
 
   label {
-    font-size: 1.2rem !important;
-    margin: 0.4rem 0.2rem !important;
+    font-size: 1.5rem !important;
+    margin: 1rem 0.2rem !important;
   }
 
   button {
     background-color: #694167 !important;
+    font-size: 1.5rem !important;
     transition: ease-in-out all 0.1s;
     &:hover {
       background-color: #774a75 !important;

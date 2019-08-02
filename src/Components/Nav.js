@@ -23,16 +23,24 @@ const Nav = props => {
 
   let show = (
     <>
-      <NavLink activeClassName="nav__active" className="nav__item" to="/Login">
-        Login
-      </NavLink>
-      <NavLink
-        activeClassName="nav__active"
-        className="nav__item"
-        to="/register"
-      >
-        Register
-      </NavLink>
+      <div>
+        <NavLink
+          activeClassName="nav__active"
+          className="nav__item"
+          to="/Login"
+        >
+          Login
+        </NavLink>
+      </div>
+      <div>
+        <NavLink
+          activeClassName="nav__active"
+          className="nav__item"
+          to="/register"
+        >
+          Register
+        </NavLink>
+      </div>
     </>
   );
 
