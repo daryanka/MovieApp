@@ -16,7 +16,7 @@ const Search = () => {
     }
     try {
       let response = await axios.get(
-        `http://www.omdbapi.com/?s=${search}&apikey=${key}`
+        `https://www.omdbapi.com/?s=${search}&apikey=${key}`
       );
 
       let data = response.data;
@@ -61,11 +61,11 @@ const Search = () => {
   return (
     <div>
       <Header
-        style={{ marginTop: "3rem" }}
+        style={{ marginTop: "3rem", fontSize: "3.5rem" }}
         textAlign="center"
         className="register__header"
         as="h1"
-        size="huge"
+        size="massive"
       >
         Search
       </Header>
@@ -81,7 +81,11 @@ const Search = () => {
             <Form.Button fluid color="violet">
               Search
             </Form.Button>
-            {err && <Message color="red">{err}</Message>}
+            {err && (
+              <Message style={{ fontSize: "1.7rem" }} color="red">
+                {err}
+              </Message>
+            )}
           </Form>
         </Grid.Column>
       </Grid>

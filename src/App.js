@@ -24,6 +24,7 @@ function App() {
         <Route path="/Search" component={Search} />
         <Route path="/Favourites" component={Favourites} />
         <Route path="/movie/:id" component={MovieDetails} />
+        <Route render={() => <Redirect to="/home" />} />
       </Switch>
     </Context.Provider>
   );

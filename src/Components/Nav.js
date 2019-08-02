@@ -39,33 +39,34 @@ const Nav = props => {
   if (user) {
     show = (
       <>
-        <NavLink
-          activeClassName="nav__active"
-          className="nav__item"
-          to="/favourites"
-        >
-          My Favourites
-        </NavLink>
-        {/* <Link to="" onClick={signoutHandler} className="nav__item">
-          Signout
-        </Link> */}
-        <Popup
-          position="top right"
-          flowing
-          hoverable
-          trigger={
-            <a style={{ cursor: "pointer" }} className="nav__item">
-              Signout
-            </a>
-          }
-        >
-          <Header as="h5">
-            Confirm by clicking{" "}
-            <a style={{ cursor: "pointer" }} onClick={signoutHandler}>
-              here
-            </a>
-          </Header>
-        </Popup>
+        <div>
+          <NavLink
+            activeClassName="nav__active"
+            className="nav__item"
+            to="/favourites"
+          >
+            My Favourites
+          </NavLink>
+        </div>
+        <div>
+          <Popup
+            position="top right"
+            flowing
+            hoverable
+            trigger={
+              <a style={{ cursor: "pointer" }} className="nav__item">
+                Signout
+              </a>
+            }
+          >
+            <Header as="h5">
+              Confirm by clicking{" "}
+              <a style={{ cursor: "pointer" }} onClick={signoutHandler}>
+                here
+              </a>
+            </Header>
+          </Popup>
+        </div>
       </>
     );
   }
@@ -73,18 +74,26 @@ const Nav = props => {
   return (
     <div className="nav">
       <div className="nav__left">
-        <NavLink activeClassName="nav__active" className="nav__item" to="/home">
-          Movie App
-        </NavLink>
+        <div>
+          <NavLink
+            activeClassName="nav__active"
+            className="nav__item"
+            to="/home"
+          >
+            Movie App
+          </NavLink>
+        </div>
       </div>
       <div className="nav__right">
-        <NavLink
-          activeClassName="nav__active"
-          className="nav__item"
-          to="/search"
-        >
-          Search
-        </NavLink>
+        <div>
+          <NavLink
+            activeClassName="nav__active"
+            className="nav__item"
+            to="/search"
+          >
+            Search
+          </NavLink>
+        </div>
         {show}
       </div>
     </div>

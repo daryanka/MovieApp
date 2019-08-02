@@ -4,8 +4,6 @@ import { Loader, List, Divider, Button } from "semantic-ui-react";
 import firebase from "../firebase/firebase";
 import axios from "axios";
 import { key } from "../apiKey";
-import { async } from "q";
-import MovieDetails from "./Movies/MovieDetails";
 import { Link } from "react-router-dom";
 
 const Favourites = props => {
@@ -57,7 +55,7 @@ const Favourites = props => {
   const getMovie = async id => {
     try {
       const response = await axios.get(
-        `http://www.omdbapi.com/?i=${id}&apikey=${key}`
+        `https://www.omdbapi.com/?i=${id}&apikey=${key}`
       );
       let data = response.data;
       setMovies(prev => {
@@ -138,41 +136,50 @@ const Favourites = props => {
   if (movies.length > 0) {
     box = movies.map((movie, index) => {
       return (
-        <div key={index} className="fav__box">
+        <>
           <h2 className="fav__box__header">{movie.Title}</h2>
-          <div style={{ width: "100%" }}>
-            <img
-              alt="home alone"
-              className="fav__box__img"
-              src={movie.Poster}
-            />
+          <div key={index} className="fav__box">
+            <div className="fav__box__left">
+              <div style={{ width: "100%" }}>
+                <img
+                  alt="home alone"
+                  className="fav__box__img"
+                  src={movie.Poster}
+                />
+              </div>
+            </div>
+            <div className="fav__box__right">
+              <div className="fav__box__info">
+                <List style={{ fontSize: "2rem" }} size="huge">
+                  <List.Item>Genre: {movie.Genre}</List.Item>
+                  <List.Item>Runtime: {movie.Runtime}</List.Item>
+                  <List.Item>Released Data: {movie.Released}</List.Item>
+                  <List.Item>Rating: {movie.imdbRating}</List.Item>
+                  <List.Item>Rated: {movie.Rated}</List.Item>
+                </List>
+                <Button
+                  className="fav__box__btn"
+                  color="black"
+                  onClick={() => movieDetailsHandler(movie.imdbID)}
+                >
+                  More Details
+                </Button>
+                <Button
+                  className="fav__box__btn"
+                  style={{ marginLeft: "1rem" }}
+                  inverted
+                  color="red"
+                  disabled={disable}
+                  onClick={() => removeHandler(movie.imdbID, index)}
+                >
+                  Remove From Favourites
+                </Button>
+              </div>
+            </div>
+
+            <Divider />
           </div>
-          <div className="fav__box__info">
-            <List size="huge">
-              <List.Item>Genre: {movie.Genre}</List.Item>
-              <List.Item>Runtime: {movie.Runtime}</List.Item>
-              <List.Item>Released Data: {movie.Released}</List.Item>
-              <List.Item>Rating: {movie.imdbRating}</List.Item>
-              <List.Item>Rated: {movie.Rated}</List.Item>
-            </List>
-            <Button
-              color="black"
-              onClick={() => movieDetailsHandler(movie.imdbID)}
-            >
-              More Details
-            </Button>
-            <Button
-              style={{ marginLeft: "1rem" }}
-              inverted
-              color="red"
-              disabled={disable}
-              onClick={() => removeHandler(movie.imdbID, index)}
-            >
-              Remove From Favourites
-            </Button>
-          </div>
-          <Divider />
-        </div>
+        </>
       );
     });
   }

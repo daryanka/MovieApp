@@ -7,8 +7,8 @@ const MoviesSearch = props => {
 
   if (props.poster === "N/A") {
     img = (
-      <Placeholder>
-        <Placeholder.Image />
+      <Placeholder style={{ height: "20rem" }}>
+        <Placeholder.Image style={{ display: "block", margin: "auto" }} />
       </Placeholder>
     );
   }

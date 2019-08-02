@@ -2,13 +2,9 @@ import React, { useContext, useCallback } from "react";
 import Context from "../../firebase/Context";
 import axios from "axios";
 import { key } from "../../apiKey";
-import { setServers } from "dns";
 import { Divider, List, Button, Placeholder } from "semantic-ui-react";
-import { placeholder } from "@babel/types";
 import { Link } from "react-router-dom";
 import firebase from "../../firebase/firebase";
-import { async } from "q";
-
 const MovieDetails = props => {
   const [movie, setMovie] = React.useState({});
   const [err, setErr] = React.useState("");
@@ -81,7 +77,7 @@ const MovieDetails = props => {
   const getMovie = async () => {
     try {
       let response = await axios.get(
-        `http://www.omdbapi.com/?i=${id}&apikey=${key}`
+        `https://www.omdbapi.com/?i=${id}&apikey=${key}`
       );
 
       let data = response.data;
@@ -130,7 +126,7 @@ const MovieDetails = props => {
                 </Placeholder.Header>
               </Placeholder>
             ) : (
-              <h2>{movie.Title}</h2>
+              <h2 style={{ fontSize: "4rem" }}>{movie.Title}</h2>
             )}
             <Divider />
             {loading ? (
@@ -146,7 +142,10 @@ const MovieDetails = props => {
                 <div style={{ height: "2rem" }} />
               </>
             ) : (
-              <List size="massive" style={{ margin: "2rem auto" }}>
+              <List
+                size="massive"
+                style={{ margin: "2rem auto", fontSize: "2rem" }}
+              >
                 <List.Item>Genre: {movie.Genre}</List.Item>
                 <List.Item>Runtime: {movie.Runtime}</List.Item>
                 <List.Item>Released Data: {movie.Released}</List.Item>
@@ -172,7 +171,11 @@ const MovieDetails = props => {
             <Placeholder.Line />
           </Placeholder>
         ) : (
-          <List className="movie__margin" size="large">
+          <List
+            style={{ fontSize: "2rem" }}
+            className="movie__margin"
+            size="large"
+          >
             <List.Item>Director: {movie.Director}</List.Item>
             <List.Item>Write: {movie.Writer}</List.Item>
             <List.Item>Cast: {movie.Actors}</List.Item>
@@ -180,7 +183,7 @@ const MovieDetails = props => {
           </List>
         )}
         <Divider style={{ width: "90%", margin: "auto" }} />
-        <h2>Plot</h2>
+        <h2 style={{ fontSize: "2.5rem" }}>Plot</h2>
         {loading ? (
           <Placeholder className="movie__placeholder__text">
             <Placeholder.Line />
@@ -191,7 +194,7 @@ const MovieDetails = props => {
             <Placeholder.Line />
           </Placeholder>
         ) : (
-          <p style={{ margin: "2rem auto" }}>{movie.Plot}</p>
+          <p style={{ margin: "2rem auto", fontSize: "2rem" }}>{movie.Plot}</p>
         )}
       </div>
       <div />

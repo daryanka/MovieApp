@@ -4,6 +4,10 @@ html {
 body {
   font-size: 62.5% !important;
 }
+
+p {
+  font-size: 1.7rem !important;
+}
 $primary: #644862;
 
 .center {
@@ -15,24 +19,31 @@ $primary: #644862;
 
 //Navigation
 .nav {
-  display: grid;
+  display: flex;
   width: 100%;
   background: $primary;
-  grid-template-columns: 1fr 2fr;
+  height: 8rem;
+  flex-wrap: nowrap;
   &__left {
+    width: 30%;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   &__right {
+    width: 70%;
+    height: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: flex-end;
+    align-items: center;
+    a {
+      margin: 0 2rem;
+    }
   }
 
   &__item {
-    font-size: 1.2rem;
-    margin: 1rem 0;
+    font-size: 2rem;
     position: relative;
-    padding: 0.2rem 0;
     color: white;
     transition: ease-in-out all 0.3s;
     &:hover {
@@ -45,7 +56,6 @@ $primary: #644862;
   }
 
   &__item:after {
-    display: block;
     content: "";
     bottom: 0;
     transition: ease-in-out all 0.3s;
@@ -96,7 +106,13 @@ $primary: #644862;
 .searchForm {
   margin: auto;
   width: 80% !important;
+
+  input {
+    font-size: 1.7rem !important;
+  }
+
   button {
+    font-size: 1.7em !important;
     background-color: #694167 !important;
     transition: ease-in-out all 0.1s;
     &:hover {
@@ -114,10 +130,10 @@ $primary: #644862;
   }
 
   &__cont2 {
-    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    // border: 0.1rem solid rgba(0, 0, 0, 0.2);
     padding: 1rem;
     border-radius: 1rem;
-    background: rgba(0, 0, 0, 0.03);
+    // background: rgba(0, 0, 0, 0.03);
     box-sizing: border-box;
     transition: ease-in-out all 0.2s;
     &:hover {
@@ -133,15 +149,19 @@ $primary: #644862;
     background-size: contain !important;
 
     img {
+      display: block;
+      border-radius: 1.5rem;
+      margin: auto;
       width: 20vw;
     }
   }
   &__title {
-    font-size: 1.4rem;
+    font-size: 2rem;
     text-align: center;
   }
 
   &__btn {
+    font-size: 2rem;
     display: block !important;
     margin: 0.3rem auto !important;
   }
@@ -262,7 +282,7 @@ $primary: #644862;
   &__header {
     margin-top: 2rem !important;
     text-align: center;
-    font-size: 2.4rem;
+    font-size: 3.5rem;
   }
 
   &__cont {
@@ -273,13 +293,40 @@ $primary: #644862;
     width: 90%;
     margin: auto;
 
+    &__btn {
+      font-size: 1.4rem !important;
+    }
+
     &__img {
       margin: 2rem auto;
       display: block;
     }
 
     &__header {
-      font-size: 2rem;
+      text-align: center;
+      margin: 3rem auto;
+      font-size: 3rem;
+    }
+  }
+}
+
+@media (max-width: 380px) {
+  .fav__box__btn {
+    font-size: 1rem !important;
+  }
+}
+
+@media (min-width: 900px) {
+  .fav__box {
+    display: flex;
+    &__left {
+      width: 50%;
+    }
+
+    &__right {
+      width: 50%;
+      display: flex;
+      align-items: center;
     }
   }
 }
